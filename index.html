@@ -96,6 +96,10 @@
         <h2>Se mostrarán aquí</h2>
         <p>Completá el formulario y presioná <strong>Calcular cuotas</strong> para ver el valor mensual estimado.</p>
       </div>
+
+      <p id="resultado">
+
+      </p>
     </div>
   </div>
   <script>
@@ -103,16 +107,34 @@
     const resultsEl = document.getElementById('results');
     const errorEl = document.getElementById('error');
     const clearAll = document.getElementById('clearAll');
+
+    const amount = parseFloat(document.getElementById('amount').value);
+    const years = parseInt(document.getElementById('years').value, 10);
+    const rate = parseFloat(document.getElementById('rate').value);
+
+    
+
     function fmtCurrency(n, currencySymbol = '$') {
       return currencySymbol + ' ' + (Number(n).toFixed(2)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
     function calcularInteres(amount, rate, years) {
+
       
+
+      n = years * 12
+      r = rate / 12 / 100
+
+      resultado1 = (amount*r* Math.pow(1+r,n)) / (Math.pow(1+r, n) -1 )
+
+      interes = resultado1 * n
+      interesTotal = interes - amount
+
       return {
-        monthly: cuotaMensual.toFixed(2),
+        monthly: resultado1.toFixed(2),
         totalInterest: interesTotal.toFixed(2),
         totalPaid: totalPagado.toFixed(2)
       };
+      
     }
     function renderResults(res) {
       resultsEl.innerHTML = `

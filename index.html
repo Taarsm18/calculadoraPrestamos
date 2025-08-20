@@ -125,11 +125,12 @@
 
       interes = resultado1 * n
       interesTotal = interes - amount
+      totalPagado = resultado1 * n
 
       return {
         monthly: resultado1.toFixed(2),
         totalInterest: interesTotal.toFixed(2),
-        
+        totalPaid: totalPagado.toFixed(2)
       };
       
     }

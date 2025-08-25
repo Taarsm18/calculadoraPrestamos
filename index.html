@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
   <title>Calculadora de Cuotas (Básica)</title>
   <style>
     html,body{height:100%}
@@ -46,11 +47,11 @@
     .actions{ margin-top:18px; }
     button.primary{
       border:0; border-radius:8px; cursor:pointer;
-      background: #eee; color:#222; font-weight:bold; padding:12px 18px; font-size:15px;
+      background: #aaf029; color:#222; font-weight:bold; padding:12px 18px; font-size:15px;
     }
     button.primary:active{ background: #ddd; }
     .error{ color:#b00020; font-size:13px; margin-top:8px; }
-    .results{ margin-top:24px; text-align:center; }
+    .results{ margin-top:24px; text-align:center; float: left; flex-direction: column; order: 1; width: 49%; padding-left: 5%;}
     .results h2{ font-size:18px; margin:8px 0 10px; }
     .results p{ color:#555; margin:0 0 10px; line-height:1.5; }
     .kpi{ margin-top:10px; border:1px solid #bbb; border-radius:8px; padding: 10px; text-align:left; color:#222; background:#fafafa; }
@@ -61,6 +62,23 @@
     .tag{
       display:inline-block; background:#eee; color:#555; border:1px solid #ccc; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:bold; margin-bottom:8px;
     }
+    .imagen{
+      width: 13%;
+      padding-right: 10px;
+    }
+    .calcForm{
+      flex-direction: column;
+      float: right;
+      order: 3;
+      width: 49;
+      padding-right: 5%;
+    }
+    .contenedor{
+      display: flex;
+      margin: auto;
+      position: flex;
+      justify-content: space-around;
+    }
   </style>
 </head>
 <body>
@@ -70,6 +88,8 @@
         <div class="title">Calculadora de Préstamo</div>
         <a class="clear" href="#" id="clearAll">Limpiar</a>
       </div>
+
+      <div class="contenedor">
       <form id="calcForm" novalidate>
         <label for="amount">Monto del préstamo</label>
         <div class="field">
@@ -87,7 +107,8 @@
           <span class="suffix">%</span>
         </div>
         <div class="actions">
-          <button class="primary" type="submit">Calcular cuotas</button>
+          
+          <button class="primary" type="submit"><img class = "imagen" src="assets/images/icon-calculator.svg" alt="">      Calcular cuotas</button>
           <div id="error" class="error" role="alert" aria-live="polite"></div>
         </div>
       </form>
@@ -96,7 +117,7 @@
         <h2>Se mostrarán aquí</h2>
         <p>Completá el formulario y presioná <strong>Calcular cuotas</strong> para ver el valor mensual estimado.</p>
       </div>
-
+      </div>
     </div>
   </div>
   <script>

@@ -51,8 +51,8 @@
     }
     button.primary:active{ background: #ddd; }
     .error{ color:#b00020; font-size:13px; margin-top:8px; }
-    .results{ margin-top:24px; text-align:center; float: left; flex-direction: column; order: 1; width: 49%; padding-left: 5%;}
-    .results h2{ font-size:18px; margin:8px 0 10px; }
+    .results{ margin-top:24px; text-align:center;}
+    .results h2{ font-size:18px; margin:8px 0 10px;}
     .results p{ color:#555; margin:0 0 10px; line-height:1.5; }
     .kpi{ margin-top:10px; border:1px solid #bbb; border-radius:8px; padding: 10px; text-align:left; color:#222; background:#fafafa; }
     .kpi .row{ display:flex; justify-content:space-between; padding:6px 2px; border-bottom:1px dashed #ccc; }
@@ -72,12 +72,17 @@
       order: 3;
       width: 49;
       padding-right: 5%;
-    }
-    .contenedor{
       display: flex;
       margin: auto;
       position: flex;
       justify-content: space-around;
+    }
+    .wrap{
+      display: flex;
+      margin: auto;
+      position: flex;
+      justify-content: space-around;
+      
     }
   </style>
 </head>
@@ -89,7 +94,6 @@
         <a class="clear" href="#" id="clearAll">Limpiar</a>
       </div>
 
-      <div class="contenedor">
       <form id="calcForm" novalidate>
         <label for="amount">Monto del préstamo</label>
         <div class="field">
@@ -108,18 +112,19 @@
         </div>
         <div class="actions">
           
-          <button class="primary" type="submit"><img class = "imagen" src="assets/images/icon-calculator.svg" alt="">      Calcular cuotas</button>
+          <button class="primary" type="submit"><img class = "imagen" src="assets/images/icon-calculator.svg" alt=""> Calcular cuotas</button>
           <div id="error" class="error" role="alert" aria-live="polite"></div>
         </div>
       </form>
       <div class="results" id="results">
+        <img src="assets/images/illustration-empty.svg" alt=""><br><br>
         <span class="tag">Resultados</span>
         <h2>Se mostrarán aquí</h2>
         <p>Completá el formulario y presioná <strong>Calcular cuotas</strong> para ver el valor mensual estimado.</p>
       </div>
       </div>
     </div>
-  </div>
+  
   <script>
     const form = document.getElementById('calcForm');
     const resultsEl = document.getElementById('results');
